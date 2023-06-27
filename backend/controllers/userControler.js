@@ -20,9 +20,26 @@ const register =  async (req, res) => {
         res.status(200).json({userName, token});
         console.log(token)
     } catch (error) {
-        res.status(400).json({error})
-        console.log({msg:error})
+        res.status(400).json({error:error.message})
+        console.log({error})
     }
     
 };
-module.exports = { register }
+// the login logic
+const login = async (req, res) => {
+    const {email, password } = req.body;
+    try {
+        const user = await User.signin(email,password);
+        const token = createToken(user._id)
+        res.cookie({"token":token }, {
+            withCredentials:true,
+            httpOnly:false
+        });
+        res.status(200).json({email, token});
+        console.log(email)
+    } catch (error) {
+        res.status(400).json({error:error.message})
+        console.log({error})
+    }
+}
+module.exports = { register, login }
