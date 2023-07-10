@@ -1,9 +1,22 @@
-import React from 'react'
+
+import { Navigate } from "react-router-dom";
+
+import { ToastContainer } from "react-toastify";
+import Header from "../components/Header";
+import axios from "axios";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 function Homepage() {
+
+  
   return (
-    <div>Homepage</div>
-  )
+    <div>
+      <Header  />
+      <ToastContainer />
+      
+    </div>
+  );
 }
 
-export default Homepage
+export default Homepage;
