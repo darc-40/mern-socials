@@ -2,7 +2,7 @@ const express = require("express");
 require("dotenv").config();
 const mongoose = require("mongoose");
 // const bodyParser = require("body-parser");
-const cors = require("cors");
+// const cors = require("cors");
 const cookieParser = require("cookie-parser");
 // routes imports
 const userRoutes = require('./routes/userRout')
@@ -13,13 +13,13 @@ const app = express();
 // middlewares
 app.use(express.json());
 // app.use(bodyParser.json());
-app.use(
-  cors({
-    origin: ["http://localhost:3000"],
-    // methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: ["http://localhost:3000"],
+//     // methods: ["GET", "POST", "PUT", "DELETE"],
+//     credentials: true,
+//   })
+// );
 app.use(cookieParser());
 
 // connecting to specific routes
